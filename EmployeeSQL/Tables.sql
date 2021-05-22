@@ -24,17 +24,17 @@ SELECT * FROM Departments;
 CREATE TABLE Employees (
     emp_no INT   NOT NULL,
     emp_title_id VARCHAR   NOT NULL,
-    birth_date DATE   NOT NULL,
+    birth_date VARCHAR  NOT NULL,
     first_name VARCHAR(30)   NOT NULL,
     last_name VARCHAR(30)   NOT NULL,
     sex VARCHAR   NOT NULL,
-    hire_date DATE   NOT NULL,
+    hire_date VARCHAR NOT NULL,
     CONSTRAINT pk_Employees PRIMARY KEY (
         emp_no
      )
 );
 
-SELECT * FROM Departments;
+SELECT * FROM Employees;
 
 CREATE TABLE Salaries (
     emp_no INT   NOT NULL,
@@ -69,21 +69,9 @@ CREATE TABLE Employer_manager (
 
 SELECT * FROM Employer_manager;
 
+-- Change 
+SHOW datestyle;
+SELECT TO_DATE(birth_date , 'MM/DD/YYYY'),
+TO_DATE( hire_date , 'MM/DD/YYYY')
+ FROM Employees;
 
-ALTER TABLE Departments ADD CONSTRAINT fk_Departments_dept_no FOREIGN KEY(dept_no)
-REFERENCES Department_employees (dept_no);
-
-ALTER TABLE Employees ADD CONSTRAINT fk_Employees_emp_no FOREIGN KEY(emp_no)
-REFERENCES Salaries (emp_no);
-
-ALTER TABLE Employees ADD CONSTRAINT fk_Employees_emp_title_id FOREIGN KEY(emp_title_id)
-REFERENCES Titles (title_id);
-
-ALTER TABLE Department_employees ADD CONSTRAINT fk_Department_employees_emp_no FOREIGN KEY(emp_no)
-REFERENCES Employees (emp_no);
-
-ALTER TABLE Employer_manager ADD CONSTRAINT fk_Employer_manager_dept_no FOREIGN KEY(dept_no)
-REFERENCES Departments (dept_no);
-
-ALTER TABLE Employer_manager ADD CONSTRAINT fk_Employer_manager_emp_no FOREIGN KEY(emp_no)
-REFERENCES Employees (emp_no);
