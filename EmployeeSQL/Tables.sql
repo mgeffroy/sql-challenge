@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS Departments;
 DROP TABLE IF EXISTS Department_employees;
 DROP TABLE IF EXISTS Employees;
-DROP TABLE IF EXISTS Employer_manager;
+DROP TABLE IF EXISTS Dept_manager;
 DROP TABLE IF EXISTS Salaries;
 DROP TABLE IF EXISTS Titles;
 
@@ -63,41 +63,11 @@ CREATE TABLE Department_employees (
 SELECT * FROM Department_employees;
 
 
-CREATE TABLE Employer_manager (
+CREATE TABLE Dept_manager (
     dept_no VARCHAR   NOT NULL,
     emp_no INT   NOT NULL
 );
 
-SELECT * FROM Employer_manager;
+SELECT * FROM Dept_manager;
 
--- Change 
-SHOW datestyle;
-SELECT TO_DATE(birth_date , 'MM/DD/YYYY'),
-TO_DATE( hire_date , 'MM/DD/YYYY')
- FROM Employees;
- 
---Data analysis 
- 
---List the following details of each employee: employee number, last name, first name, sex, and salary.
-
-
---List first name, last name, and hire date for employees who were hired in 1986.
-
-
---List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
-
-
---List the department of each employee with the following information: employee number, last name, first name, and department name.
-
-
---List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
-
-
---List all employees in the Sales department, including their employee number, last name, first name, and department name.
-
-
---List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
-
-
---In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
