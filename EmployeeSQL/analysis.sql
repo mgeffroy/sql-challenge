@@ -101,3 +101,10 @@ SELECT e.last_name, COUNT(last_name) AS "Last Names"
 FROM Employees AS e
 GROUP BY last_name
 ORDER BY last_name DESC; 
+
+-- Searching my ID
+SELECT e.emp_no AS "Employee number", e.first_name AS "Name", e.last_name AS "Last Name"
+FROM Employees AS e
+WHERE e.emp_no = 499942;
+
+--- April's fool's it seems. 
