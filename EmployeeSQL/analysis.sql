@@ -87,10 +87,14 @@ e.last_name AS "Last Name",
 e.first_name AS "First Name",
 d.dept_name AS "Department Name"
 FROM Employees AS e
-lEFT JOIN department_employees AS de
+LEFT JOIN department_employees AS de
 ON e.emp_no=de.emp_no
 LEFT JOIN departments AS d 
-ON de.dept_no = d.dept_no;
+ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales' OR  d.dept_name = 'Development'
+GROUP BY (e.emp_no, d.dept_name)
+ORDER BY e.emp_no;
+
 
 --In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 SELECT e.last_name, COUNT(last_name) AS "Last Names"
