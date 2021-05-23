@@ -73,10 +73,13 @@ e.last_name AS "Last Name",
 e.first_name AS "First Name",
 d.dept_name AS "Department Name"
 FROM Employees AS e
-lEFT JOIN department_employees AS de
+LEFT JOIN department_employees AS de
 ON e.emp_no=de.emp_no
 LEFT JOIN departments AS d 
-ON de.dept_no = d.dept_no;
+ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales'
+GROUP BY (e.emp_no, d.dept_name)
+ORDER BY e.emp_no;
 
 --List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 SElECT e.emp_no AS "Employee number",
